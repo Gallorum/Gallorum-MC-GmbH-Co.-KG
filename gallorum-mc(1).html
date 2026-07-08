@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallorum MC – CFO Praxiswerkstatt</title>
+<meta name="description" content="Gallorum MC GmbH & Co. KG – CFO Praxiswerkstatt für CEOs und Nachwuchskräfte. Praktische Umsetzung, unternehmerisches Denken, 30 Jahre CFO-Erfahrung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1E33;
+    --ink-2:#16273F;
+    --paper:#F6F6F3;
+    --paper-2:#FFFFFF;
+    --slate:#4A5568;
+    --slate-soft:#7C8698;
+    --gold:#B08D45;
+    --gold-soft:#D9C289;
+    --line:rgba(15,30,51,0.12);
+    --line-light:rgba(246,246,243,0.18);
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    padding:22px 0;
+    transition:background-color .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  header.site-nav.scrolled{
+    background:rgba(246,246,243,0.92);
+    backdrop-filter:blur(10px);
+    padding:14px 0;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    font-weight:500;
+    letter-spacing:0.01em;
+    color:var(--ink);
+  }
+  header.site-nav:not(.scrolled) .brand{ color:var(--paper-2); }
+  header.site-nav:not(.scrolled) .brand svg{ stroke:var(--paper-2); }
+
+  .brand svg{width:30px;height:30px;stroke:var(--ink); transition:stroke .4s ease;}
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    color:var(--paper-2);
+    opacity:0.82;
+    position:relative;
+    padding-bottom:4px;
+    transition:opacity .3s ease, color .4s ease;
+  }
+  header.site-nav.scrolled .nav-links a{ color:var(--ink); opacity:0.72; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:1px;
+    background:var(--gold);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-phone{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line-light);
+    border-radius:4px;
+    width:40px; height:40px;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .nav-toggle svg{stroke:var(--paper-2); width:20px; height:20px;}
+  header.site-nav.scrolled .nav-toggle svg{stroke:var(--ink);}
+  header.site-nav.scrolled .nav-toggle{border-color:var(--line);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper-2);
+    padding:180px 0 110px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line-light) 1px, transparent 1px);
+    background-size:100% 64px;
+    opacity:0.5;
+    z-index:-1;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:1px;
+    background:var(--gold-soft);
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(2.4rem, 5vw, 4.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold-soft);
+  }
+  .hero p.lede{
+    margin-top:26px;
+    font-size:1.08rem;
+    color:rgba(246,246,243,0.78);
+    max-width:46ch;
+    line-height:1.75;
+  }
+  .hero-actions{
+    margin-top:40px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:15px 26px;
+    border-radius:2px;
+    transition:all .3s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .btn-primary:hover{
+    background:var(--gold-soft);
+    transform:translateY(-1px);
+  }
+  .btn-ghost{
+    border-color:var(--line-light);
+    color:var(--paper-2);
+  }
+  .btn-ghost:hover{
+    border-color:var(--gold-soft);
+    color:var(--gold-soft);
+  }
+
+  .hero-tags{
+    margin-top:44px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:7px 13px;
+    border:1px solid var(--line-light);
+    border-radius:2px;
+    color:rgba(246,246,243,0.7);
+  }
+
+  /* Seal */
+  .seal-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .seal{
+    width:min(340px, 80vw);
+    animation:spin 60s linear infinite;
+    transform-origin:50% 50%;
+  }
+  @keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+  }
+  .seal-static{
+    animation:none !important;
+  }
+  .seal text{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:3px;
+    fill:var(--gold-soft);
+    text-transform:uppercase;
+  }
+  .seal-core{
+    animation:none;
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{
+    padding:120px 0;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:64px;
+  }
+  .section-head .eyebrow{ color:var(--gold); }
+  .section-head .eyebrow::before{ background:var(--gold); }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(1.8rem, 3.4vw, 2.6rem);
+    line-height:1.18;
+    letter-spacing:-0.01em;
+  }
+  .section-head p{
+    margin-top:18px;
+    color:var(--slate);
+    font-size:1.02rem;
+    max-width:56ch;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- LEISTUNGEN (ledger list) ---------- */
+  .ledger{
+    border-top:1px solid var(--line);
+  }
+  .ledger-item{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:40px;
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .ledger-item .li-label{
+    font-family:var(--font-mono);
+    font-size:0.76rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .ledger-item .li-label svg{
+    width:26px; height:26px;
+    stroke:var(--gold);
+    margin-bottom:6px;
+  }
+  .ledger-item h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:1.5rem;
+    margin-bottom:12px;
+    letter-spacing:-0.005em;
+  }
+  .ledger-item p{
+    color:var(--slate);
+    max-width:60ch;
+    font-size:1rem;
+  }
+
+  /* ---------- UBER MICH ---------- */
+  .about{
+    background:var(--ink);
+    color:var(--paper-2);
+  }
+  .about .section-head .eyebrow{ color:var(--gold-soft); }
+  .about .section-head .eyebrow::before{ background:var(--gold-soft); }
+  .about .section-head h2{ color:var(--paper-2); }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-copy p{
+    color:rgba(246,246,243,0.78);
+    font-size:1.05rem;
+    line-height:1.85;
+    margin-bottom:22px;
+    max-width:56ch;
+  }
+  .about-copy strong{
+    color:var(--paper-2);
+    font-weight:600;
+  }
+  .about-signature{
+    margin-top:36px;
+    padding-top:28px;
+    border-top:1px solid var(--line-light);
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    color:rgba(246,246,243,0.6);
+    letter-spacing:0.03em;
+  }
+
+  .stat-block{
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--line-light);
+  }
+  .stat{
+    padding:26px 0;
+    border-bottom:1px solid var(--line-light);
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:20px;
+  }
+  .stat .num{
+    font-family:var(--font-mono);
+    font-size:2.1rem;
+    color:var(--gold-soft);
+    letter-spacing:-0.01em;
+    white-space:nowrap;
+  }
+  .stat .desc{
+    font-size:0.9rem;
+    color:rgba(246,246,243,0.68);
+    text-align:right;
+  }
+
+  /* ---------- KONTAKT ---------- */
+  .contact{
+    background:var(--paper);
+  }
+  .contact-panel{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:64px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+  }
+  .contact-panel h2{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(1.8rem, 3.2vw, 2.4rem);
+    line-height:1.2;
+    max-width:14ch;
+  }
+  .contact-panel p{
+    margin-top:18px;
+    color:var(--slate);
+    max-width:44ch;
+  }
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    justify-content:center;
+  }
+  .contact-link{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-link:first-child{ padding-top:0; }
+  .contact-link .clabel{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--slate-soft);
+  }
+  .contact-link .cvalue{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    color:var(--ink);
+    transition:color .25s ease;
+  }
+  .contact-link:hover .cvalue{ color:var(--gold); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    letter-spacing:0.03em;
+    color:var(--slate-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .seal-wrap{ margin-top:56px; }
+    .about-grid{ grid-template-columns:1fr; }
+    .contact-panel{ grid-template-columns:1fr; padding:44px 28px; }
+    .ledger-item{ grid-template-columns:1fr; gap:14px; }
+    .nav-links{
+      position:fixed;
+      top:0; right:0;
+      height:100vh;
+      width:min(78vw, 320px);
+      background:var(--ink);
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:center;
+      gap:30px;
+      padding:40px;
+      transform:translateX(100%);
+      transition:transform .4s ease;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ color:var(--paper-2) !important; font-size:0.9rem; }
+    .nav-phone{ display:none; }
+    .nav-toggle{ display:flex; }
+    section{ padding:84px 0; }
+    .hero{ padding:150px 0 80px; }
+  }
+
+  @media (max-width:560px){
+    .wrap{ padding:0 20px; }
+    .stat{ flex-direction:column; align-items:flex-start; gap:4px; }
+    .stat .desc{ text-align:left; }
+    .contact-panel{ padding:36px 20px; }
+    .hero-actions{ flex-direction:column; align-items:stretch; }
+    .btn{ justify-content:center; }
+  }
+
+  /* ---------- FOOTER LEGAL LINKS ---------- */
+  .footer-legal-links{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .legal-trigger{
+    background:none;
+    border:none;
+    padding:0;
+    font-family:var(--font-mono);
+    font-size:0.74rem;
+    letter-spacing:0.03em;
+    color:var(--slate-soft);
+    cursor:pointer;
+    transition:color .25s ease;
+  }
+  .legal-trigger:hover{ color:var(--gold); }
+
+  /* ---------- LEGAL MODAL ---------- */
+  .legal-modal{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    display:none;
+    background:rgba(15,30,51,0.55);
+    backdrop-filter:blur(3px);
+    padding:5vh 20px;
+    overflow-y:auto;
+  }
+  .legal-modal.open{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+  }
+  .legal-panel{
+    position:relative;
+    background:var(--paper-2);
+    border-radius:6px;
+    max-width:720px;
+    width:100%;
+    padding:56px;
+    margin:auto;
+    box-shadow:0 20px 60px rgba(15,30,51,0.35);
+  }
+  .legal-close{
+    position:absolute;
+    top:22px; right:22px;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:4px;
+    width:36px; height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .legal-close svg{ width:16px; height:16px; stroke:var(--ink); }
+  .legal-close:hover{ border-color:var(--gold); }
+  .legal-content h2{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:1.9rem;
+    margin-top:4px;
+    margin-bottom:28px;
+  }
+  .legal-content h3{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:30px;
+    margin-bottom:10px;
+  }
+  .legal-content h3:first-of-type{ margin-top:0; }
+  .legal-content p{
+    color:var(--slate);
+    font-size:0.96rem;
+    line-height:1.75;
+  }
+  .legal-content a{
+    color:var(--ink);
+    text-decoration:underline;
+    text-decoration-color:var(--gold-soft);
+    text-underline-offset:3px;
+  }
+  .legal-note{
+    margin-top:36px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-size:0.82rem;
+    color:var(--slate-soft);
+    font-style:italic;
+  }
+
+  @media (max-width:560px){
+    .legal-panel{ padding:36px 24px; }
+    .footer-inner{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 32 32" fill="none" stroke-width="1.4"><circle cx="16" cy="16" r="14"/><path d="M16 8v8l6 3"/></svg>
+      Gallorum MC
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li class="nav-phone"><a href="tel:+497351587896"><span class="cvalue" style="font-family:var(--font-mono);font-size:0.78rem;">+49 7351 5878986</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Gallorum MC GmbH &amp; Co. KG</div>
+        <h1>CFO Praxis&shy;werkstatt für <em>Führung, die trägt</em></h1>
+        <p class="lede">
+          Kein Theoriekurs, sondern eine Werkstatt: Wir arbeiten direkt an Ihren Zahlen, Ihren Entscheidungen und Ihrer Organisation – mit dem Blick eines CFOs, der 30 Jahre operative Verantwortung getragen hat.
+        </p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Gespräch vereinbaren</a>
+          <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+        </div>
+        <div class="hero-tags">
+          <span class="tag">Für CEOs</span>
+          <span class="tag">Für Nachwuchskräfte</span>
+          <span class="tag">30 Jahre CFO-Erfahrung</span>
+        </div>
+      </div>
+
+      <div class="seal-wrap">
+        <svg class="seal" viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="150" r="140" stroke="var(--line-light)" stroke-width="1"/>
+          <circle cx="150" cy="150" r="118" stroke="var(--gold-soft)" stroke-width="1"/>
+          <path id="ringPath" d="M 150,150 m -129,0 a 129,129 0 1,1 258,0 a 129,129 0 1,1 -258,0" fill="none"/>
+          <text>
+            <textPath href="#ringPath" startOffset="0%">GALLORUM MC · PRAXISWERKSTATT · UNTERNEHMERISCH DENKEN ·</textPath>
+          </text>
+          <g class="seal-core">
+            <circle cx="150" cy="150" r="82" stroke="var(--line-light)" stroke-width="1"/>
+            <text x="150" y="140" text-anchor="middle" font-family="Fraunces, serif" font-size="54" fill="#F6F6F3" letter-spacing="0">30</text>
+            <text x="150" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#D9C289" letter-spacing="2">JAHRE CFO</text>
+            <text x="150" y="188" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#D9C289" letter-spacing="2">ERFAHRUNG</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Leistungen</div>
+        <h2>Was Sie aus der Zusammenarbeit mitnehmen</h2>
+        <p>Drei Grundpfeiler, die jede Zusammenarbeit tragen – konkret anwendbar auf Ihre Situation, nicht als allgemeines Rahmenwerk.</p>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-item reveal">
+          <div class="li-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M4 12l6 6L20 6"/></svg>
+            Umsetzung
+          </div>
+          <div>
+            <h3>Praktische Umsetzung</h3>
+            <p>Keine Folienstrategie ohne Landung im Tagesgeschäft. Wir erarbeiten Maßnahmen, die sich direkt in Ihre Steuerung, Ihre Meetings und Ihre Entscheidungen einbauen lassen – prüfbar und nachvollziehbar.</p>
+          </div>
+        </div>
+
+        <div class="ledger-item reveal">
+          <div class="li-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+            Denkweise
+          </div>
+          <div>
+            <h3>Unternehmerisches Denken</h3>
+            <p>Zahlen sind Mittel, kein Selbstzweck. Wir bringen die Perspektive des Gesamtunternehmens in jede Finanzfrage – damit Entscheidungen nicht nur korrekt, sondern wirksam sind.</p>
+          </div>
+        </div>
+
+        <div class="ledger-item reveal">
+          <div class="li-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Erfahrung
+          </div>
+          <div>
+            <h3>30 Jahre CFO-Erfahrung</h3>
+            <p>Drei Jahrzehnte operativer Verantwortung in Finanzfunktionen – durch Wachstum, Krisen und Nachfolgen hindurch. Diese Erfahrung fließt direkt in jede Empfehlung ein.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBER MICH -->
+  <section id="ueber-mich" class="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Über mich</div>
+        <h2>Gallorum MC GmbH &amp; Co. KG</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p>
+            Die <strong>Gallorum MC GmbH &amp; Co. KG</strong> steht für die <strong>CFO Praxiswerkstatt</strong> – ein Format, das Finanzführung nicht erklärt, sondern gemeinsam mit Ihnen umsetzt. Im Mittelpunkt steht die direkte Arbeit an realen Fragestellungen: Liquidität, Steuerung, Reporting, Nachfolge, Wachstum.
+          </p>
+          <p>
+            Grundlage dafür sind 30 Jahre CFO-Erfahrung in operativer Verantwortung – nicht als Berater von außen, sondern als jemand, der selbst Zahlen verantwortet, Entscheidungen getragen und Organisationen durch Veränderung geführt hat.
+          </p>
+          <p>
+            Die Praxiswerkstatt richtet sich an <strong>CEOs</strong>, die einen erfahrenen Sparringspartner für ihre Finanzfunktion suchen, sowie an <strong>Nachwuchskräfte</strong>, die sich auf Führungsverantwortung im Finanzbereich vorbereiten.
+          </p>
+          <div class="about-signature">— Gallorum MC · CFO Praxiswerkstatt</div>
+        </div>
+
+        <div class="stat-block reveal">
+          <div class="stat">
+            <span class="num">30+</span>
+            <span class="desc">Jahre operative CFO-Erfahrung</span>
+          </div>
+          <div class="stat">
+            <span class="num">CEO</span>
+            <span class="desc">Sparringspartner auf Augenhöhe</span>
+          </div>
+          <div class="stat">
+            <span class="num">NW</span>
+            <span class="desc">Begleitung von Nachwuchskräften in Finanzverantwortung</span>
+          </div>
+          <div class="stat">
+            <span class="num">1:1</span>
+            <span class="desc">Praxisnahe, individuelle Zusammenarbeit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="contact">
+    <div class="wrap">
+      <div class="contact-panel reveal">
+        <div>
+          <h2>Lassen Sie uns über Ihre Finanzführung sprechen</h2>
+          <p>Ein kurzes Gespräch genügt, um zu klären, ob und wie die CFO Praxiswerkstatt zu Ihrer Situation passt.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:info@gallorum-mc.de">
+            <span class="clabel">E-Mail</span>
+            <span class="cvalue">info@gallorum-mc.de</span>
+          </a>
+          <a class="contact-link" href="tel:+497351587896">
+            <span class="clabel">Telefon</span>
+            <span class="cvalue">+49 7351 5878986</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span id="year"></span> Gallorum MC GmbH &amp; Co. KG</span>
+    <span class="footer-legal-links">
+      <button type="button" class="legal-trigger" data-open="impressum">Impressum</button>
+      <span aria-hidden="true">·</span>
+      <button type="button" class="legal-trigger" data-open="datenschutz">Datenschutzerklärung</button>
+    </span>
+  </div>
+</footer>
+
+<!-- IMPRESSUM -->
+<div class="legal-modal" id="impressum" aria-hidden="true">
+  <div class="legal-panel" role="dialog" aria-modal="true" aria-labelledby="impressum-title">
+    <button type="button" class="legal-close" data-close aria-label="Schließen">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="legal-content">
+      <div class="eyebrow">Rechtliches</div>
+      <h2 id="impressum-title">Impressum</h2>
+
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>
+        Gallorum MC GmbH &amp; Co. KG<br>
+        [Straße und Hausnummer]<br>
+        [PLZ Ort]
+      </p>
+
+      <h3>Vertreten durch</h3>
+      <p>
+        [Name der/des Geschäftsführenden bzw. der Komplementärin einsetzen]
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        Telefon: <a href="tel:+497351587896">+49 7351 5878986</a><br>
+        E-Mail: <a href="mailto:info@gallorum-mc.de">info@gallorum-mc.de</a>
+      </p>
+
+      <h3>Registereintrag</h3>
+      <p>
+        Eintragung im Handelsregister<br>
+        Registergericht: [Amtsgericht einsetzen]<br>
+        Registernummer: [HRA-Nummer einsetzen]
+      </p>
+
+      <h3>Umsatzsteuer-ID</h3>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
+        [USt-IdNr. einsetzen]
+      </p>
+
+      <h3>Inhaltlich verantwortlich gemäß § 18 Abs. 2 MStV</h3>
+      <p>
+        [Name]<br>
+        [Anschrift wie oben]
+      </p>
+
+      <h3>Streitschlichtung</h3>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <p class="legal-note">Hinweis: Diese Vorlage ersetzt keine Rechtsberatung. Bitte die mit „[ ]" markierten Angaben durch die tatsächlichen Unternehmensdaten ersetzen.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DATENSCHUTZ -->
+<div class="legal-modal" id="datenschutz" aria-hidden="true">
+  <div class="legal-panel" role="dialog" aria-modal="true" aria-labelledby="datenschutz-title">
+    <button type="button" class="legal-close" data-close aria-label="Schließen">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="legal-content">
+      <div class="eyebrow">Rechtliches</div>
+      <h2 id="datenschutz-title">Datenschutzerklärung</h2>
+
+      <h3>1. Verantwortlicher</h3>
+      <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+        Gallorum MC GmbH &amp; Co. KG<br>
+        [Straße und Hausnummer]<br>
+        [PLZ Ort]<br>
+        E-Mail: <a href="mailto:info@gallorum-mc.de">info@gallorum-mc.de</a><br>
+        Telefon: <a href="tel:+497351587896">+49 7351 5878986</a>
+      </p>
+
+      <h3>2. Erhebung und Speicherung personenbezogener Daten beim Besuch der Website</h3>
+      <p>
+        Beim Aufrufen dieser Website erhebt der Webserver unseres Hosting-Anbieters ([Name des Hosting-Anbieters einsetzen]) automatisiert technische Daten (sogenannte Server-Logfiles), z. B. IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp und -version sowie das verwendete Betriebssystem. Diese Daten sind für den technisch fehlerfreien Betrieb der Website erforderlich und werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) verarbeitet.
+      </p>
+
+      <h3>3. Keine Cookies, kein Tracking</h3>
+      <p>
+        Diese Website setzt keine Cookies ein und verwendet keine Analyse- oder Tracking-Tools. Es findet keine Erstellung von Nutzungsprofilen statt.
+      </p>
+
+      <h3>4. Kontaktaufnahme</h3>
+      <p>
+        Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden die von Ihnen mitgeteilten Daten (z. B. Name, Kontaktdaten, Inhalt Ihrer Anfrage) von uns gespeichert und verarbeitet, um Ihre Anfrage zu bearbeiten. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO, sofern die Kontaktaufnahme der Anbahnung oder Erfüllung eines Vertrags dient, andernfalls Art. 6 Abs. 1 lit. f DSGVO. Ihre Daten werden gelöscht, sobald sie für die Bearbeitung Ihrer Anfrage nicht mehr erforderlich sind.
+      </p>
+
+      <h3>5. Ihre Rechte</h3>
+      <p>
+        Sie haben jederzeit das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO) sowie das Recht auf Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) und Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Wenden Sie sich hierzu an die oben genannte Kontaktadresse.
+      </p>
+
+      <h3>6. Beschwerderecht bei einer Aufsichtsbehörde</h3>
+      <p>
+        Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren, z. B. bei der für [Bundesland einsetzen] zuständigen Landesdatenschutzbehörde.
+      </p>
+
+      <h3>7. Aktualität und Änderung dieser Datenschutzerklärung</h3>
+      <p>
+        Diese Datenschutzerklärung ist aktuell gültig (Stand: <span id="dsUpdateDate"></span>). Durch die Weiterentwicklung der Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+      </p>
+
+      <p class="legal-note">Hinweis: Diese Vorlage ersetzt keine Rechtsberatung. Bitte die mit „[ ]" markierten Angaben durch die tatsächlichen Unternehmensdaten ersetzen und ggf. juristisch prüfen lassen.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Respect reduced motion for the rotating seal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.querySelector('.seal').classList.add('seal-static');
+  }
+
+  // Legal modals (Impressum / Datenschutz)
+  const dsDate = document.getElementById('dsUpdateDate');
+  if (dsDate) {
+    dsDate.textContent = new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  let lastFocused = null;
+
+  function openLegalModal(id){
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    lastFocused = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = modal.querySelector('.legal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeLegalModal(modal){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.legal-trigger').forEach(btn => {
+    btn.addEventListener('click', () => openLegalModal(btn.dataset.open));
+  });
+
+  document.querySelectorAll('.legal-modal').forEach(modal => {
+    modal.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', () => closeLegalModal(modal));
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeLegalModal(modal);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.legal-modal.open').forEach(modal => closeLegalModal(modal));
+    }
+  });
+</script>
+
+</body>
+</html>
